@@ -46,3 +46,8 @@ class Shape_manager:
             if shape.id == shape_id:
                 return i
         return -1
+
+    def create_id(self):
+        if not self.shapes:
+            return 1
+        return max(shape.id for shape in self.shapes) + 1
