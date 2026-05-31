@@ -28,3 +28,8 @@ def json_to_shape(json_str):
         return Square(shape_id, data["side"])
     else:
         raise ValueError(f"Unknown shape type: {shape_type}")
+
+
+def json_to_shapes_list(json_str):
+    shapes_data = json.loads(json_str)
+    return [json_to_shape(json.dumps(item)) for item in shapes_data]
