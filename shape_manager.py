@@ -91,3 +91,13 @@ class Shape_manager:
         self.save_to_json()
         logger.info(f"Deleted shape with id {shape_id}")
         return True
+
+    def save_to_json(self):
+        try:
+            data = [shape.to_dict() for shape in self.shapes]
+            with open(JSON_FILE, "w") as f:
+                json.dump(data, f, indent=2)
+            logger.info(f"Saved {len(data)} shapes to {JSON_FILE}")
+        except Exception as e:
+            logger.error(f"Failed to save shapes: {e}")
+            raise
