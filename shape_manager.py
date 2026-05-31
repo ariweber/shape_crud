@@ -71,3 +71,13 @@ class Shape_manager:
         if index == -1:
             return None
         return self.shapes[index]
+
+    def update_shape(self, shape_id, new_data):
+        index = self._find_index(shape_id)
+        if index == -1:
+            logger.warning(f"Shape with id {shape_id} not found for update")
+            return False
+        self.shapes[index] = new_data
+        self.save_to_json()
+        logger.info(f"Updated shape with id {shape_id}")
+        return True
