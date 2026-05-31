@@ -40,3 +40,36 @@ def show_all_shapes(manager):
     print(f"\n--- All Shapes ({len(shapes)}) ---")
     for shape in shapes:
         print(f"  {shape}")
+
+
+def update_shape_menu(manager):
+    show_all_shapes(manager)
+    if not manager.shapes:
+        return
+
+    shape_id = read_int("\nEnter shape ID to update: ")
+
+    print("New shape type:")
+    print("1. Circle")
+    print("2. Rectangle")
+    print("3. Square")
+    choice = input("Choose shape type: ")
+
+    if choice == "1":
+        radius = read_positive_float("Enter new radius: ")
+        new_shape = Circle(shape_id, radius)
+    elif choice == "2":
+        width = read_positive_float("Enter new width: ")
+        height = read_positive_float("Enter new height: ")
+        new_shape = Rectangle(shape_id, width, height)
+    elif choice == "3":
+        side = read_positive_float("Enter new side: ")
+        new_shape = Square(shape_id, side)
+    else:
+        print("Invalid choice.")
+        return
+
+    if manager.update_shape(shape_id, new_shape):
+        print(f"Updated to: {new_shape}")
+    else:
+        print("Shape not found.")
