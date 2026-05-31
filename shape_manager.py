@@ -33,3 +33,10 @@ def json_to_shape(json_str):
 def json_to_shapes_list(json_str):
     shapes_data = json.loads(json_str)
     return [json_to_shape(json.dumps(item)) for item in shapes_data]
+
+
+class Shape_manager:
+    def __init__(self):
+        self.shapes = []
+        self.load_from_json()
+        logger.info("ShapeManager initialized")
