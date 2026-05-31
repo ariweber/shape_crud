@@ -81,3 +81,13 @@ class Shape_manager:
         self.save_to_json()
         logger.info(f"Updated shape with id {shape_id}")
         return True
+
+    def delete_shape(self, shape_id):
+        index = self._find_index(shape_id)
+        if index == -1:
+            logger.warning(f"Shape with id {shape_id} not found for delete")
+            return False
+        del self.shapes[index]
+        self.save_to_json()
+        logger.info(f"Deleted shape with id {shape_id}")
+        return True
