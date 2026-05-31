@@ -85,3 +85,35 @@ def delete_shape_menu(manager):
         print("Shape deleted.")
     else:
         print("Shape not found.")
+
+
+def main():
+    manager = Shape_manager()
+
+    while True:
+        print("\n=== Shape Manager ===")
+        print("1. Create shape")
+        print("2. Show all shapes")
+        print("3. Update shape")
+        print("4. Delete shape")
+        print("5. Exit")
+
+        choice = input("Choose option: ")
+
+        if choice == "1":
+            create_shape_menu(manager)
+        elif choice == "2":
+            show_all_shapes(manager)
+        elif choice == "3":
+            update_shape_menu(manager)
+        elif choice == "4":
+            delete_shape_menu(manager)
+        elif choice == "5":
+            print("Goodbye!")
+            break
+        else:
+            print("Invalid choice, try again.")
+
+
+if __name__ == "__main__":
+    main()
