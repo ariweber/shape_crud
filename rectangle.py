@@ -12,3 +12,6 @@ class Rectangle(Shape):
 
     def get_perimeter(self):
         return 2 * (self.width + self.height)
+
+    def to_dict(self):
+        return {"id": self.id, "type": "rectangle", "width": self.width, "height": self.height}
