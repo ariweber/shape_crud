@@ -65,3 +65,9 @@ class Shape_manager:
     def get_all_shapes(self):
         logger.info(f"Retrieved {len(self.shapes)} shapes")
         return list(self.shapes)
+
+    def get_shape(self, shape_id):
+        index = self._find_index(shape_id)
+        if index == -1:
+            return None
+        return self.shapes[index]
