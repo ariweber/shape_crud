@@ -73,3 +73,15 @@ def update_shape_menu(manager):
         print(f"Updated to: {new_shape}")
     else:
         print("Shape not found.")
+
+
+def delete_shape_menu(manager):
+    show_all_shapes(manager)
+    if not manager.shapes:
+        return
+
+    shape_id = read_int("\nEnter shape ID to delete: ")
+    if manager.delete_shape(shape_id):
+        print("Shape deleted.")
+    else:
+        print("Shape not found.")
