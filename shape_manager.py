@@ -12,3 +12,19 @@ JSON_FILE = "shapes.json"
 
 def shape_to_json(shape):
     return json.dumps(shape.to_dict())
+
+
+def json_to_shape(json_str):
+    data = json.loads(json_str)
+
+    shape_type = data.get("type")
+    shape_id = data.get("id")
+
+    if shape_type == "circle":
+        return Circle(shape_id, data["radius"])
+    elif shape_type == "rectangle":
+        return Rectangle(shape_id, data["width"], data["height"])
+    elif shape_type == "square":
+        return Square(shape_id, data["side"])
+    else:
+        raise ValueError(f"Unknown shape type: {shape_type}")
