@@ -17,3 +17,6 @@ class Shape(ABC):
     @abstractmethod
     def to_dict(self):
         pass
+
+    def __str__(self):
+        return f"{self.shape_type} (id={self.id}, area={self.get_area():.2f}, perimeter={self.get_perimeter():.2f})"
