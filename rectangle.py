@@ -6,3 +6,6 @@ class Rectangle(Shape):
         super().__init__(shape_id, "rectangle")
         self.width = width
         self.height = height
+
+    def get_area(self):
+        return self.width * self.height
