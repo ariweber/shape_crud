@@ -51,3 +51,13 @@ class Shape_manager:
         if not self.shapes:
             return 1
         return max(shape.id for shape in self.shapes) + 1
+
+    def create_shape(self, shape):
+        existing = self._find_index(shape.id)
+        if existing != -1:
+            logger.warning(f"Shape with id {shape.id} already exists, overwriting")
+            self.shapes[existing] = shape
+        else:
+            self.shapes.append(shape)
+        self.save_to_json()
+        logger.info(f"Created shape {shape.shape_type} with id {shape.id}")
