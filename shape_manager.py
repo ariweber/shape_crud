@@ -101,3 +101,23 @@ class Shape_manager:
         except Exception as e:
             logger.error(f"Failed to save shapes: {e}")
             raise
+
+    def load_from_json(self):
+        try:
+            with open(JSON_FILE, "r") as f:
+                data = json.load(f)
+        except FileNotFoundError:
+            logger.warning(f"{JSON_FILE} not found, starting empty")
+            self.shapes = []
+            return
+        except json.JSONDecodeError as e:
+            logger.error(f"Invalid JSON in {JSON_FILE}: {e}")
+            self.shapes = []
+            return
+
+        self.shapes = []
+        for item in data:
+            shape = json_to_shape(json.dumps(item))
+            self.shapes.append(shape)
+
+        logger.info(f"Loaded {len(self.shapes)} shapes from {JSON_FILE}")
