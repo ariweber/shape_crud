@@ -1,0 +1,23 @@
+[
+  {
+    "id": 1,
+    "type": "circle",
+    "radius": 5.0
+  },
+  {
+    "id": 2,
+    "type": "circle",
+    "radius": 2.0
+  },
+  {
+    "id": 3,
+    "type": "circle",
+    "radius": 2.0
+  },
+  {
+    "id": 4,
+    "type": "rectangle",
+    "width": 2.0,
+    "height": 3.0
+  }
+]
