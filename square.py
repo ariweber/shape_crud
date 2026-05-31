@@ -11,3 +11,6 @@ class Square(Shape):
 
     def get_perimeter(self):
         return self.side * 4
+
+    def to_dict(self):
+        return {"id": self.id, "type": "square", "side": self.side}
