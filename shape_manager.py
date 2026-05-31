@@ -41,7 +41,7 @@ class Shape_manager:
         self.load_from_json()
         logger.info("ShapeManager initialized")
 
-    def _find_index(self, shape_id):
+    def find_index(self, shape_id):
         for i, shape in enumerate(self.shapes):
             if shape.id == shape_id:
                 return i
@@ -53,7 +53,7 @@ class Shape_manager:
         return max(shape.id for shape in self.shapes) + 1
 
     def create_shape(self, shape):
-        existing = self._find_index(shape.id)
+        existing = self.find_index(shape.id)
         if existing != -1:
             logger.warning(f"Shape with id {shape.id} already exists, overwriting")
             self.shapes[existing] = shape
@@ -67,13 +67,13 @@ class Shape_manager:
         return list(self.shapes)
 
     def get_shape(self, shape_id):
-        index = self._find_index(shape_id)
+        index = self.find_index(shape_id)
         if index == -1:
             return None
         return self.shapes[index]
 
     def update_shape(self, shape_id, new_data):
-        index = self._find_index(shape_id)
+        index = self.find_index(shape_id)
         if index == -1:
             logger.warning(f"Shape with id {shape_id} not found for update")
             return False
@@ -83,7 +83,7 @@ class Shape_manager:
         return True
 
     def delete_shape(self, shape_id):
-        index = self._find_index(shape_id)
+        index = self.find_index(shape_id)
         if index == -1:
             logger.warning(f"Shape with id {shape_id} not found for delete")
             return False
