@@ -40,3 +40,9 @@ class Shape_manager:
         self.shapes = []
         self.load_from_json()
         logger.info("ShapeManager initialized")
+
+    def _find_index(self, shape_id):
+        for i, shape in enumerate(self.shapes):
+            if shape.id == shape_id:
+                return i
+        return -1
