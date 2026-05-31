@@ -30,3 +30,13 @@ def create_shape_menu(manager):
 
     manager.create_shape(shape)
     print(f"Created: {shape}")
+
+
+def show_all_shapes(manager):
+    shapes = manager.get_all_shapes()
+    if not shapes:
+        print("\nNo shapes found.")
+        return
+    print(f"\n--- All Shapes ({len(shapes)}) ---")
+    for shape in shapes:
+        print(f"  {shape}")
