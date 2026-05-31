@@ -13,3 +13,7 @@ class Shape(ABC):
     @abstractmethod
     def get_perimeter(self):
         pass
+
+    @abstractmethod
+    def to_dict(self):
+        pass
