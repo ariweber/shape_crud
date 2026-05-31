@@ -61,3 +61,7 @@ class Shape_manager:
             self.shapes.append(shape)
         self.save_to_json()
         logger.info(f"Created shape {shape.shape_type} with id {shape.id}")
+
+    def get_all_shapes(self):
+        logger.info(f"Retrieved {len(self.shapes)} shapes")
+        return list(self.shapes)
